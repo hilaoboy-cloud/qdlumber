@@ -35,7 +35,7 @@ h2.section-title::after{content:"";display:block;width:56px;height:4px;border-ra
 .site-header{position:sticky;top:0;z-index:100;background:rgba(11,61,36,.97);backdrop-filter:blur(6px);box-shadow:0 2px 12px rgba(0,0,0,.18)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
 .brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:1.08rem}
-.brand-logo{height:42px;width:auto;background:#fff;border-radius:8px;padding:4px 10px;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.brand-logo{height:44px;width:auto;display:block}
 .brand small{display:block;font-size:.68rem;font-weight:400;color:#c9dccf;letter-spacing:.08em}
 .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
 .nav-links a{color:#dcebe1;padding:10px 14px;border-radius:6px;font-size:.95rem;transition:.2s}
@@ -156,7 +156,7 @@ h2.section-title::after{content:"";display:block;width:56px;height:4px;border-ra
 /* ===== 页脚 ===== */
 .site-footer{background:var(--navy);color:#c9dccf;padding:60px 0 0;font-size:.92rem;border-top:4px solid var(--accent)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:44px}
-.footer-brand img.footer-logo{height:46px;width:auto;background:#fff;border-radius:8px;padding:5px 12px;margin-bottom:16px}
+.footer-brand img.footer-logo{height:48px;width:auto;display:block;margin-bottom:16px}
 .footer-brand p{font-size:.9rem;color:#a9c4b2;margin-bottom:14px;max-width:340px}
 .footer-certs{font-size:.78rem;color:#93a89a;line-height:2}
 .footer-certs span{display:inline-block;border:1px solid rgba(255,255,255,.22);border-radius:4px;padding:1px 8px;margin:0 6px 6px 0}
