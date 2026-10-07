@@ -34,7 +34,7 @@ h2.section-title::after{content:"";display:block;width:56px;height:4px;border-ra
 /* ===== 顶部导航 ===== */
 .site-header{position:sticky;top:0;z-index:100;background:rgba(11,61,36,.97);backdrop-filter:blur(6px);box-shadow:0 2px 12px rgba(0,0,0,.18)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:1.08rem}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:1rem;white-space:nowrap}
 .brand-logo{height:44px;width:auto;display:block}
 .brand small{display:block;font-size:.68rem;font-weight:400;color:#c9dccf;letter-spacing:.08em}
 .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
@@ -83,6 +83,19 @@ h2.section-title::after{content:"";display:block;width:56px;height:4px;border-ra
 .card-body h3::before{content:"";display:inline-block;width:22px;height:4px;border-radius:2px;background:var(--steel);margin-right:8px;vertical-align:middle}
 .card-body p{font-size:.93rem;color:var(--muted);flex:1}
 .card-body a{margin-top:14px;font-weight:700;font-size:.92rem}
+/* ===== 卡片动画 ===== */
+/* 滚动显现：由 JS 加 .reveal，入视口后加 .visible */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0s)}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* 卡片悬停增强：顶部色条扫过 + 图片缓慢放大 */
+.card{position:relative}
+.card::after{content:"";position:absolute;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--steel),var(--accent));transition:width .35s ease;z-index:2}
+.card:hover::after{width:100%}
+.card img{transition:transform .5s ease}
+.card:hover img{transform:scale(1.07)}
+.net-card,.contact-card{transition:transform .25s ease,box-shadow .25s ease}
+.net-card:hover,.contact-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(11,61,36,.14)}
 
 /* ===== 全球网络 ===== */
 .network-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
