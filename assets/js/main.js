@@ -79,7 +79,7 @@
     });
   }
 
-  /* RFQ 表单验证 + mailto 提交 */
+  /* RFQ 表单验证 + formsubmit.co AJAX 提交（失败降级 mailto） */
   var form = document.getElementById("rfqForm");
   if (form) {
     form.addEventListener("submit", function(e){
@@ -103,18 +103,44 @@
         if (firstBad) firstBad.focus();
         return;
       }
-      var subject = encodeURIComponent("官网询价 RFQ — " + company + " / " + name);
-      var body = encodeURIComponent(
-        "姓名：" + name + "\n公司：" + company + "\n邮箱：" + email +
-        "\n电话：" + (phone || "—") + "\n\n需求描述：\n" + need +
-        "\n\n（此邮件由青岛拉博尔包装设备有限公司官网 RFQ 表单生成）"
-      );
-      window.location.href = "mailto:Evan.chen@qdlumberco.com?subject=" + subject + "&body=" + body;
       var note = document.getElementById("formNote");
-      if (note) {
-        note.style.display = "block";
-        note.textContent = "已为您打开邮件客户端，请点击发送完成询价。我们通常在 1 个工作日内回复。";
+      function showNote(text){
+        if (note) { note.style.display = "block"; note.textContent = text; }
       }
+      function mailtoFallback(){
+        var subject = encodeURIComponent("官网询价 RFQ — " + company + " / " + name);
+        var body = encodeURIComponent(
+          "姓名：" + name + "\n公司：" + company + "\n邮箱：" + email +
+          "\n电话：" + (phone || "—") + "\n\n需求描述：\n" + need +
+          "\n\n（此邮件由青岛拉博尔包装设备有限公司官网 RFQ 表单生成）"
+        );
+        window.location.href = "mailto:Evan.chen@qdlumberco.com?subject=" + subject + "&body=" + body;
+        showNote("网络异常，已为您打开邮件客户端发送。我们通常在 1 个工作日内回复。");
+      }
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = "发送中…"; }
+      fetch("https://formsubmit.co/ajax/Evan.chen@qdlumberco.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          company: company,
+          email: email,
+          phone: phone || "—",
+          need: need,
+          _subject: "官网询价 RFQ — " + company + " / " + name
+        })
+      }).then(function(res){
+        if (!res.ok) throw new Error("bad response");
+        return res.json();
+      }).then(function(){
+        form.reset();
+        showNote("询价已发送，我们通常在 1 个工作日内回复。");
+      }).catch(function(){
+        mailtoFallback();
+      }).finally(function(){
+        if (btn) { btn.disabled = false; btn.textContent = "提交询价"; }
+      });
     });
     ["fName","fCompany","fEmail","fNeed"].forEach(function(id){
       var el = document.getElementById(id);
