@@ -48,13 +48,16 @@ h2.section-title::after{content:"";display:block;width:56px;height:4px;border-ra
 .btn-green:hover{background:#256F39;box-shadow:0 6px 16px rgba(46,139,68,.35)}
 .nav-cta{margin-left:10px;padding:9px 20px!important;background:var(--accent);color:#fff!important;font-weight:700}
 .nav-cta:hover{background:var(--accent-dark)!important}
+/* EN 语言切换：克制的小字样式 */
+.lang-switch{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.06em;color:#A9AFB6!important;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 12px!important;margin-right:2px;transition:.2s}
+.lang-switch:hover{color:#fff!important;border-color:rgba(255,255,255,.6)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
 .hamburger span{display:block;width:26px;height:3px;background:#fff;margin:5px 0;border-radius:2px;transition:.25s}
 
 /* ===== Hero ===== */
 .hero{position:relative;color:#fff;padding:110px 0 90px;overflow:hidden;background:var(--graphite)}
-.hero-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.38}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(46,50,55,.93) 20%,rgba(46,50,55,.58) 60%,rgba(46,139,68,.28))}
+.hero-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.48}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(46,50,55,.74) 20%,rgba(46,50,55,.46) 60%,rgba(46,139,68,.22))}
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px}
 .hero .eyebrow{color:var(--accent)}
 .hero h1{color:#fff;font-size:2.7rem;max-width:720px;margin-bottom:18px}
