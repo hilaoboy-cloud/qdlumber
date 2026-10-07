@@ -1,4 +1,4 @@
-/* 青岛木材与包装 — 全站交互 */
+/* 青岛拉博尔包装设备有限公司 — 全站交互 */
 (function(){
   "use strict";
 
@@ -51,6 +51,23 @@
   window.addEventListener("scroll", checkCounters, {passive:true});
   checkCounters();
 
+  /* 卡片滚动显现动画 */
+  var revealEls = document.querySelectorAll(".card, .net-card, .contact-card");
+  revealEls.forEach(function(el, i){
+    el.classList.add("reveal");
+    el.style.setProperty("--d", ((i % 4) * 0.08) + "s");
+  });
+  if ("IntersectionObserver" in window && revealEls.length) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); }
+      });
+    }, {threshold: 0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("visible"); });
+  }
+
   /* 返回顶部 */
   var toTop = document.getElementById("toTop");
   if (toTop) {
@@ -90,7 +107,7 @@
       var body = encodeURIComponent(
         "姓名：" + name + "\n公司：" + company + "\n邮箱：" + email +
         "\n电话：" + (phone || "—") + "\n\n需求描述：\n" + need +
-        "\n\n（此邮件由青岛木材与包装官网 RFQ 表单生成）"
+        "\n\n（此邮件由青岛拉博尔包装设备有限公司官网 RFQ 表单生成）"
       );
       window.location.href = "mailto:Evan.chen@qdlumberco.com?subject=" + subject + "&body=" + body;
       var note = document.getElementById("formNote");
