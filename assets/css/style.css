@@ -201,22 +201,22 @@ h2.section-title::after{content:"";display:block;width:56px;height:4px;border-ra
 @media(max-width:768px){.faq-grid{grid-template-columns:1fr}}
 
 /* ===== 页脚 ===== */
-.site-footer{background:var(--hdg);color:#A3AC9F;padding:60px 0 0;font-size:.92rem;border-top:4px solid var(--steel)}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:44px}
-.footer-brand img.footer-logo{height:48px;width:auto;display:block;margin-bottom:16px}
-.footer-brand p{font-size:.9rem;color:#A8B4C8;margin-bottom:14px;max-width:340px}
-.footer-tagline{color:#3DA758;font-size:.85rem;font-weight:600;letter-spacing:.05em;margin-bottom:14px}
+.site-footer{background:var(--hdg);color:#A3AC9F;padding:36px 0 0;font-size:.92rem;border-top:4px solid var(--steel)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:28px;margin-bottom:28px}
+.footer-brand img.footer-logo{height:36px;width:auto;display:block;margin-bottom:12px}
+.footer-brand p{font-size:.88rem;color:#A8B4C8;margin-bottom:10px;max-width:340px}
+.footer-tagline{color:#3DA758;font-size:.82rem;font-weight:600;letter-spacing:.05em;margin-bottom:10px}
 .footer-certs{font-size:.78rem;color:#8B96AC;line-height:2}
 .footer-certs span{display:inline-block;border:1px solid rgba(255,255,255,.22);border-radius:4px;padding:1px 8px;margin:0 6px 6px 0}
-.site-footer h4{color:#fff;font-size:1rem;margin-bottom:16px;position:relative;padding-bottom:10px}
+.site-footer h4{color:#fff;font-size:.95rem;margin-bottom:12px;position:relative;padding-bottom:8px}
 .site-footer h4::after{content:"";position:absolute;left:0;bottom:0;width:28px;height:3px;border-radius:2px;background:var(--steel)}
 .site-footer ul{list-style:none}
-.site-footer li{margin-bottom:9px}
+.site-footer li{margin-bottom:6px}
 .site-footer a{color:#A3AC9F}
 .site-footer a:hover{color:#fff}
 .footer-contact li{color:#A8B4C8}
 .footer-contact strong{color:#fff;font-weight:600}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0;text-align:center;font-size:.84rem;color:#8B96AC}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding:14px 0;text-align:center;font-size:.84rem;color:#8B96AC}
 
 /* ===== 浮动按钮 ===== */
 .to-top{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;background:var(--steel);color:#fff;border:none;cursor:pointer;font-size:1.2rem;display:none;box-shadow:var(--shadow);z-index:90}
